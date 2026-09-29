@@ -1,0 +1,241 @@
+/* 講義の質問ポイント一覧。デザイン見本（2026-09-29承認）の構成に合わせる。
+   色は :root のトークンだけで管理する。 */
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --line: #dde5f0;
+  --text: #14213d;
+  --muted: #536179;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --chip-bg: #e6eefc;
+  --chip-text: #1e4fc4;
+  --num-bg: #e9eef7;
+  --badge-blue-bg: #e8effc;
+  --badge-blue-text: #23408f;
+  --badge-green-bg: #e2f6e9;
+  --badge-green-text: #14603a;
+  --tab-bg: #eef2f8;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", "Noto Sans JP", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.wrap {
+  width: min(1100px, 100% - 32px);
+  margin-inline: auto;
+}
+
+/* ヘッダー */
+.hero { padding: 40px 0 8px; }
+.chip {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 2px 14px;
+  border-radius: 999px;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 4.4vw, 46px);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+.lead {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1.9vw, 20px);
+}
+
+/* 講義の選択：PCはタブ、スマホは選択欄 */
+.picker { display: none; margin-top: 24px; }
+.picker label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 14px; font-weight: 700; }
+.picker select {
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 40px 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%2314213d' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 26px;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+.tab {
+  min-height: 60px;
+  padding: 10px 14px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: var(--tab-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
+  cursor: pointer;
+}
+.tab:last-child { border-right: 0; }
+.tab:hover { background: #e3eaf6; }
+.tab[aria-selected="true"] { background: var(--blue); color: #fff; }
+.tab:focus-visible, .picker select:focus-visible, .time:focus-visible, .video-link:focus-visible {
+  outline: 3px solid #f5a623;
+  outline-offset: -3px;
+}
+
+/* 質問ポイントの一覧 */
+.panel {
+  padding: 28px 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 0 0 12px 12px;
+  background: var(--card);
+}
+.status { margin: 0; color: var(--muted); }
+.panel h2 {
+  margin: 0;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.4;
+}
+.summary { margin: 4px 0 0; color: var(--muted); font-size: 17px; }
+.video-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue-dark);
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.list-title {
+  margin: 26px 0 12px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 700;
+}
+.items { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+
+.item {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 220px;
+  gap: 4px 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+.num {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--num-bg);
+  font-weight: 700;
+}
+.q { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.6; }
+.badge {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 14px;
+  border-radius: 999px;
+  background: var(--badge-blue-bg);
+  color: var(--badge-blue-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+.badge.green { background: var(--badge-green-bg); color: var(--badge-green-text); }
+
+.detail { margin: 12px 0 0; display: grid; gap: 8px; }
+.detail div { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 8px; }
+.detail dt { margin: 0; color: var(--muted); font-size: 14px; font-weight: 700; }
+.detail dd { margin: 0; font-size: 15px; }
+
+.times {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: start;
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+.time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  color: var(--blue-dark);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.time::before {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M9.5 7.5v9l7-4.5z' fill='%23fff'/%3E%3C/svg%3E");
+}
+.time .clock { font-variant-numeric: tabular-nums; }
+
+.foot {
+  margin: 22px 0 48px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* スマホ：講義は選択欄、質問カードは縦並び */
+@media (max-width: 768px) {
+  .hero { padding-top: 24px; }
+  .picker { display: block; }
+  .tabs { display: none; }
+  .panel { margin-top: 16px; padding: 20px 16px 24px; border-radius: 12px; }
+  .item {
+    grid-template-columns: 40px minmax(0, 1fr);
+    padding: 16px 14px;
+  }
+  .q { font-size: 17px; }
+  .main { display: contents; }
+  .q { grid-column: 2; }
+  .badge { grid-column: 2; justify-self: start; }
+  .detail { grid-column: 1 / -1; margin-top: 14px; }
+  .detail div { grid-template-columns: 1fr; gap: 0; }
+  .times {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    padding: 10px 0 0;
+    margin-top: 12px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}

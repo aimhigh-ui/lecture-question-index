@@ -1,0 +1,97 @@
+{
+  "pages": [
+    "http://localhost:8766/index.html?lecture=3",
+    "http://localhost:8766/index.html?lecture=5",
+    "http://localhost:8766/index.html?lecture=7",
+    "http://localhost:8766/index.html?lecture=8"
+  ],
+  "devices": [
+    {
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mobile": true
+    },
+    {
+      "width": 375,
+      "height": 844,
+      "mobile": true
+    }
+  ],
+  "readySelector": ".items > .item:first-child",
+  "sections": [
+    ".hero",
+    ".panel"
+  ],
+  "steps": [
+    {
+      "name": "PC: 講義7のタブを選ぶ",
+      "selector": "#tab-7",
+      "action": "click",
+      "minWidth": 769,
+      "expect": {
+        "attribute": "aria-selected",
+        "value": "true"
+      },
+      "screenshot": true,
+      "capture": ".panel"
+    },
+    {
+      "name": "PC: 講義8のタブを選ぶ",
+      "selector": "#tab-8",
+      "action": "click",
+      "minWidth": 769,
+      "expect": {
+        "attribute": "aria-selected",
+        "value": "true"
+      }
+    },
+    {
+      "name": "PC: 講義3のタブを選ぶ",
+      "selector": "#tab-3",
+      "action": "click",
+      "minWidth": 769,
+      "expect": {
+        "attribute": "aria-selected",
+        "value": "true"
+      }
+    }
+  ],
+  "rules": [
+    {
+      "name": "PCは講義タブを表示",
+      "selector": ".tabs",
+      "css": "display",
+      "value": "grid",
+      "minWidth": 769
+    },
+    {
+      "name": "スマホは選択欄を表示",
+      "selector": ".picker",
+      "css": "display",
+      "value": "block",
+      "maxWidth": 700
+    },
+    {
+      "name": "スマホは質問カードを縦並び",
+      "selector": ".items",
+      "layout": "vertical",
+      "children": ":scope > .item",
+      "value": "vertical",
+      "maxWidth": 700
+    },
+    {
+      "name": "時刻リンクの本文サイズ",
+      "selector": ".time",
+      "css": "font-size",
+      "value": "16px"
+    }
+  ]
+}
