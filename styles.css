@@ -80,7 +80,7 @@ h1 {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
   margin-top: 26px;
   border: 1px solid var(--line);
@@ -100,7 +100,8 @@ h1 {
   font-weight: 600;
   line-height: 1.4;
   text-align: center;
-  text-wrap: balance;
+  text-wrap: wrap;
+  word-break: keep-all;
   cursor: pointer;
 }
 .tab:last-child { border-right: 0; }

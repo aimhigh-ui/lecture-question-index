@@ -1,3 +1,4 @@
 data/sources.local.json
+data/*.local.txt
 checks/results/
 README.md

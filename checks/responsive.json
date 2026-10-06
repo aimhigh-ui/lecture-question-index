@@ -3,7 +3,8 @@
     "http://localhost:8766/index.html?lecture=3",
     "http://localhost:8766/index.html?lecture=5",
     "http://localhost:8766/index.html?lecture=7",
-    "http://localhost:8766/index.html?lecture=8"
+    "http://localhost:8766/index.html?lecture=8",
+    "http://localhost:8766/index.html?lecture=9"
   ],
   "devices": [
     {
@@ -62,6 +63,18 @@
         "attribute": "aria-selected",
         "value": "true"
       }
+    },
+    {
+      "name": "PC: 講義9のタブを選ぶ",
+      "selector": "#tab-9",
+      "action": "click",
+      "minWidth": 769,
+      "expect": {
+        "attribute": "aria-selected",
+        "value": "true"
+      },
+      "screenshot": true,
+      "capture": ".panel"
     }
   ],
   "rules": [
