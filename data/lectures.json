@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-29",
-  "updated": "2026-10-06",
+  "updated": "2026-10-20",
   "note": "時刻は文字起こしの表示値。resumeKind は explain（説明再開）/ chapter（次の章）/ closing（締め）。受講者の氏名は載せない。",
   "lectures": [
     {
@@ -47,6 +47,34 @@
           "studentQuestion": "なし",
           "answer": "質問がなかったため、講義を終了した。トレードチャンスがない時も練習を続けるよう伝えた。",
           "resumeSec": 2349,
+          "resumeKind": "closing"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "videoId": "qoMJpi-GCYI",
+      "videoTitle": "トレアカ講義4　エリオット波動・NE",
+      "summary": "エリオット波動の各波、フィボナッチ、NE計算値",
+      "segments": [
+        {
+          "askSec": 955,
+          "ask": "ここまでの各波の特徴は大丈夫ですか。",
+          "badge": "反応あり・質問なし",
+          "reaction": "受講者の返答内容は文字起こしに残っていない。講師は「オーケーです」と述べた。",
+          "studentQuestion": "なし",
+          "answer": "追加の質問はなく、フィボナッチの説明へ進んだ。",
+          "resumeSec": 1008,
+          "resumeKind": "chapter"
+        },
+        {
+          "askSec": 2104,
+          "ask": "講義の内容は大丈夫ですか。何か質問はありますか。",
+          "badge": "コメントあり・質問なし",
+          "reaction": "都合を悪く考えすぎることに関するコメントがあり、講師が「それもよくありますね」と応じた。",
+          "studentQuestion": "明確な質問文は文字起こしにない。コメントの全文も不明瞭。",
+          "answer": "講師は自分の経験にも触れ、レンジ相場では次にどちらへ抜けるか考えるなど、その時にやるべきことへ集中すると話した。",
+          "resumeSec": 2267,
           "resumeKind": "closing"
         }
       ]

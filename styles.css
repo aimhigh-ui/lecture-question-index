@@ -80,7 +80,7 @@ h1 {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   margin-top: 26px;
   border: 1px solid var(--line);
@@ -104,7 +104,8 @@ h1 {
   word-break: keep-all;
   cursor: pointer;
 }
-.tab:last-child { border-right: 0; }
+.tab:nth-child(3n) { border-right: 0; }
+.tab:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
 .tab:hover { background: #e3eaf6; }
 .tab[aria-selected="true"] { background: var(--blue); color: #fff; }
 .tab:focus-visible, .picker select:focus-visible, .time:focus-visible, .video-link:focus-visible {

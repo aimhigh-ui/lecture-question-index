@@ -1,6 +1,7 @@
 {
   "pages": [
     "http://localhost:8766/index.html?lecture=3",
+    "http://localhost:8766/index.html?lecture=4",
     "http://localhost:8766/index.html?lecture=5",
     "http://localhost:8766/index.html?lecture=7",
     "http://localhost:8766/index.html?lecture=8",
@@ -67,6 +68,18 @@
     {
       "name": "PC: 講義9のタブを選ぶ",
       "selector": "#tab-9",
+      "action": "click",
+      "minWidth": 769,
+      "expect": {
+        "attribute": "aria-selected",
+        "value": "true"
+      },
+      "screenshot": true,
+      "capture": ".panel"
+    },
+    {
+      "name": "PC: 講義4のタブを選ぶ",
+      "selector": "#tab-4",
       "action": "click",
       "minWidth": 769,
       "expect": {
